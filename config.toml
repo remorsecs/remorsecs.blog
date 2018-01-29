@@ -1,0 +1,7 @@
+baseURL = "https://remorsecs.github.io"
+languageCode = "en-us"
+title = "Maniac"
+theme = "one"
+
+[params]
+    navigation = ["archives.md", "about.md"]
