@@ -13,6 +13,8 @@ fi
 
 git commit -m "$msg"
 
+rm -rf public
+
 # Build the project.
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 

@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "https://remorsecs.github.io"
+baseurl = "https://remorsecs.github.io/"
 languageCode = "en"
 title = "Maniac"
 theme = "cactus-plus"
