@@ -1,21 +1,3 @@
-[submodule "themes/one"]
-	path = themes/one
-	url = https://github.com/resugary/hugo-theme-one.git
-[submodule "themes/zmd"]
-	path = themes/zmd
-	url = https://github.com/amoshyc/hugo-zmd-theme.git
-[submodule "themes/temple"]
-	path = themes/temple
-	url = https://github.com/aos/temple.git
-[submodule "themes/cocoa-eh"]
-	path = themes/cocoa-eh
-	url = https://github.com/mtn/cocoa-eh-hugo-theme.git
-[submodule "themes/slim"]
-	path = themes/slim
-	url = https://github.com/zhe/hugo-theme-slim.git
-[submodule "themes/pickles"]
-	path = themes/pickles
-	url = https://github.com/mismith0227/hugo_theme_pickles.git
 [submodule "themes/cactus-plus"]
 	path = themes/cactus-plus
 	url = https://github.com/nodejh/hugo-theme-cactus-plus.git
