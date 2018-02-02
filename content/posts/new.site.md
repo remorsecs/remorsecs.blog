@@ -1,8 +1,8 @@
 ---
 title: "如何在 GitHub Pages 使用 hugo 建立 blog"
 date: 2018-01-30T18:37:50+08:00
-categories: ['blog', 'git', 'github']
-tags: ['hugo']
+categories: ['blog']
+tags: ['hugo', 'blog', 'git', 'github']
 
 ---
 
@@ -22,74 +22,61 @@ tags: ['hugo']
 
 ## Step 2: 建立 hugo site 
 
-{{< highlight bash >}}
+```bash
 $ hugo new site <blog-project-name> /home/bin
-{{< / highlight >}}
+```
 
-{{< highlight bash >}}
+```
 $ cd <blog-project-name>
 $ git init
 $ echo .DS_Store >> .gitignore
 
 # add git remote repo
 $ git remote add origin git@github.com:<your-github-account>/<blog-project-name>.git
-{{< / highlight >}}
+```
 
 ## Step 3: 安裝 theme
-先挑選自己喜歡的 [theme](https://themes.gohugo.io/)，我選擇 [slim](https://github.com/zhe/hugo-theme-slim)
-在這邊有個坑，如果用 git clone 如下：
+先挑選自己喜歡的 [theme](https://themes.gohugo.io/)，我選擇 [Cactus Plus](https://themes.gohugo.io/hugo-theme-cactus-plus/)。
 
-{{< highlight bash >}}
-$ git clone https://github.com/zhe/hugo-theme-slim themes/slim
-{{< / highlight >}}
+在這邊有個坑，如果只用 git clone 如下：
+
+```
+$ git clone https://github.com/nodejh/hugo-theme-cactus-plus themes/cactus-plus
+```
 
 在 push 到 GitHub 之後會報錯，必須改用 git submodule：
 
-{{< highlight bash >}}
-git submodule add https://github.com/zhe/hugo-theme-slim themes/slim
-{{< / highlight >}}
+```
+$ git submodule add https://github.com/nodejh/hugo-theme-cactus-plus themes/cactus-plus
+```
 
-接下來我參考 slim 的官網設定 about.md, archives.md 和 config.toml
+接下來參考 exampleSite 設定 config.toml。
 
 ## Step 4: 開啟 hugo server 預覽
 
-{{< highlight bash >}}
+```
 # -D 預覽時包含草稿內容
 #
 # 如果要在遠端架設 hugo server 來預覽，則需要:
 # -b <your IP address> --bind="0.0.0.0"
 $ hugo server -w
-{{< / highlight >}}
+```
 
-## Step 5: 在 config.toml 設定輸出靜態網頁到 docs/
+## Step 5: 新增 deploy.sh
 
-{{< highlight bash >}}
-# in config.toml
-publishDir = "docs"
-{{< / highlight >}}
-
-## Step 6: 新增 docs 為 submodule
-
-{{< highlight bash >}}
-$ git submodule add git@github.com:<your-github-account>/<your-github-account>.github.io.git docs
-{{< / highlight >}}
-
-## Step 7: 新增 deploy.sh
-
-{{< highlight bash >}}
+```
 $ cat > deploy.sh
-{{< / highlight >}}
+```
 
 這邊要注意，按照官網的操作並不會把原始檔上傳到 `<blog-project>` 的 repo，所以加入
 
-{{< highlight bash >}}
+```
 $ git add -A
 ...
 $ git commit ...
+```
 
-{{< / highlight >}}
-
-{{< highlight bash >}}
+```
 #!/bin/bash
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
@@ -121,11 +108,10 @@ git push origin master
 
 # Come Back up to the Project Root
 cd ..
-{{< / highlight >}}
+```
 
 最後記得改變 deploy.sh 權限為可執行
 
-{{< highlight bash >}}
+```
 $ chmod +x deploy.sh
-{{< / highlight >}}
-
+```

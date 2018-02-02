@@ -1,25 +1,25 @@
 # Site settings
 baseurl = "https://remorsecs.github.io/"
-languageCode = "en"
+languageCode = "zh-tw"
 title = "Maniac"
 theme = "cactus-plus"
-googleAnalytics = "your_google_analytics_id"
+googleAnalytics = "UA-113302216-1"
 # Set the value to true if your site include CJK (Chinese, Japanese, and Korean languages) characters
-hasCJKLanguage = false
+hasCJKLanguage = true
 
 [params]
-	author = "site_author"
-	description = "Site Description"
-	bio = "author biography"
+	author = "Maniac"
+	description = ""
+	bio = ""
 
-	twitter = "your_twitter_id"
-	facebook = "your_facebook_id"
+	twitter = ""
+	facebook = ""
 
-	enableRSS = true
+	enableRSS = false
 	enableToc = true
 
 	enableDisqus = true
-	disqusShortname = "your_disqus_short_name"
+	disqusShortname = ""
 
 
 	enableSummary = true
@@ -71,6 +71,6 @@ hasCJKLanguage = false
 
 # Add additional social link entries underneath
 [social]
-	facebook-square = "https://www.facebook.com/nodejh"
-	twitter-square = "https://www.twitter.com/nodejh"
-	github-square = "https://www.github.com/nodejh"
+	facebook-square = "https://www.facebook.com/erwin.schrodinger.7"
+	twitter-square = "https://www.twitter.com/maniac_tw"
+	github-square = "https://www.github.com/remorsecs"
