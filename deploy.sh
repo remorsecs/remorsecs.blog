@@ -16,6 +16,9 @@ git commit -m "$msg"
 # Build the project.
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 
+# Push source code
+git push origin master
+
 # Go To Public folder
 cd public
 # Add changes to git.
