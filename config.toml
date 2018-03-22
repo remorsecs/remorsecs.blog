@@ -6,7 +6,7 @@ theme = "cactus-plus"
 googleAnalytics = "UA-113302216-1"
 # Set the value to true if your site include CJK (Chinese, Japanese, and Korean languages) characters
 hasCJKLanguage = true
-publishDir = "temp"
+#publishDir = "temp"
 
 [params]
 	author = "Maniac"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maniac</title>
+    <link>https://remorsecs.github.io/</link>
+    <description>Recent content on Maniac</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 22 Mar 2018 18:26:10 +0800</lastBuildDate>
+    
+	<atom:link href="https://remorsecs.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test</title>
+      <link>https://remorsecs.github.io/posts/test/</link>
+      <pubDate>Thu, 22 Mar 2018 18:26:10 +0800</pubDate>
+      
+      <guid>https://remorsecs.github.io/posts/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>如何在 GitHub Pages 使用 hugo 建立 blog</title>
+      <link>https://remorsecs.github.io/posts/new.site/</link>
+      <pubDate>Tue, 30 Jan 2018 18:37:50 +0800</pubDate>
+      
+      <guid>https://remorsecs.github.io/posts/new.site/</guid>
+      <description>&lt;h1 id=&#34;使用-user-site&#34;&gt;使用 user site&lt;/h1&gt;
+
+&lt;p&gt;目標：使用 &lt;code&gt;&amp;lt;your-github-account&amp;gt;.github.io&lt;/code&gt; 當作域名建立 blog，並且上傳原始檔和靜態網頁。
+這邊參考&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/#github-user-or-organization-pages&#34;&gt;官網&lt;/a&gt;操作，並作一點修改。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

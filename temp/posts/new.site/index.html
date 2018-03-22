@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 
+			
+  
+    <meta name="twitter:card" content="summary"/>
+    
+      <meta name="twitter:image" content="https://remorsecs.github.io/images/avatar.png" />
+    
+  
+  
+  <meta name="twitter:title" content="如何在 GitHub Pages 使用 hugo 建立 blog"/>
+  <meta name="twitter:description" content="使用 user site
+
+目標：使用 &lt;your-github-account&gt;.github.io 當作域名建立 blog，並且上傳原始檔和靜態網頁。
+這邊參考官網操作，並作一點修改。
+
+"/>
+  
+  
+  
+  
+    <meta name="twitter:creator" content="@Maniac"/>
+  
+
+
+
+		
+		<meta name="author" content="Maniac">
+		
+		<meta name="generator" content="Hugo 0.31.1" />
+		<title>如何在 GitHub Pages 使用 hugo 建立 blog &middot; Maniac</title>
+		<link rel="shortcut icon" href="https://remorsecs.github.io/images/favicon.ico">
+		<link rel="stylesheet" href="https://remorsecs.github.io/css/style.css">
+		<link rel="stylesheet" href="https://remorsecs.github.io/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://remorsecs.github.io/css/font-awesome.min.css">
+		
+
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://remorsecs.github.io/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://remorsecs.github.io/posts'>Archive</a>
+	<a href='https://remorsecs.github.io/tags'>Tags</a>
+	<a href='https://remorsecs.github.io/about'>About</a>
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        如何在 GitHub Pages 使用 hugo 建立 blog
+                    </h1>
+                    <h2 class="headline">
+                    Jan 30, 2018 18:37
+                    · 450 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://remorsecs.github.io/tags/hugo">hugo</a>
+                          
+                              <a href="https://remorsecs.github.io/tags/blog">blog</a>
+                          
+                              <a href="https://remorsecs.github.io/tags/git">git</a>
+                          
+                              <a href="https://remorsecs.github.io/tags/github">github</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li><a href="#使用-user-site">使用 user site</a>
+<ul>
+<li><a href="#step-1-建立-github-repo">Step 1: 建立 GitHub repo</a></li>
+<li><a href="#step-2-建立-hugo-site">Step 2: 建立 hugo site</a></li>
+<li><a href="#step-3-安裝-theme">Step 3: 安裝 theme</a></li>
+<li><a href="#step-4-開啟-hugo-server-預覽">Step 4: 開啟 hugo server 預覽</a></li>
+<li><a href="#step-5-新增-deploy-sh">Step 5: 新增 deploy.sh</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    <h1 id="使用-user-site">使用 user site</h1>
+
+<p>目標：使用 <code>&lt;your-github-account&gt;.github.io</code> 當作域名建立 blog，並且上傳原始檔和靜態網頁。
+這邊參考<a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/#github-user-or-organization-pages">官網</a>操作，並作一點修改。</p>
+
+<p></p>
+
+<h2 id="step-1-建立-github-repo">Step 1: 建立 GitHub repo</h2>
+
+<p>先在 GitHub 新增一個 repo, 名稱設定為 <code>&lt;your-github-account&gt;.github.io</code>, 用來存放靜態網頁並顯示。</p>
+
+<p>再新增一個 repo, 名稱設定為 <code>&lt;blog-project-name&gt;</code>, 用來存放原始檔。
+接下來回到 local 操作</p>
+
+<h2 id="step-2-建立-hugo-site">Step 2: 建立 hugo site</h2>
+
+<pre><code class="language-bash">$ hugo new site &lt;blog-project-name&gt; /home/bin
+</code></pre>
+
+<pre><code>$ cd &lt;blog-project-name&gt;
+$ git init
+$ echo .DS_Store &gt;&gt; .gitignore
+
+# add git remote repo
+$ git remote add origin git@github.com:&lt;your-github-account&gt;/&lt;blog-project-name&gt;.git
+</code></pre>
+
+<h2 id="step-3-安裝-theme">Step 3: 安裝 theme</h2>
+
+<p>先挑選自己喜歡的 <a href="https://themes.gohugo.io/">theme</a>，我選擇 <a href="https://themes.gohugo.io/hugo-theme-cactus-plus/">Cactus Plus</a>。</p>
+
+<p>在這邊有個坑，如果只用 git clone 如下：</p>
+
+<pre><code>$ git clone https://github.com/nodejh/hugo-theme-cactus-plus themes/cactus-plus
+</code></pre>
+
+<p>在 push 到 GitHub 之後會報錯，必須改用 git submodule：</p>
+
+<pre><code>$ git submodule add https://github.com/nodejh/hugo-theme-cactus-plus themes/cactus-plus
+</code></pre>
+
+<p>接下來參考 exampleSite 設定 config.toml。</p>
+
+<h2 id="step-4-開啟-hugo-server-預覽">Step 4: 開啟 hugo server 預覽</h2>
+
+<pre><code># -D 預覽時包含草稿內容
+#
+# 如果要在遠端架設 hugo server 來預覽，則需要:
+# -b &lt;your IP address&gt; --bind=&quot;0.0.0.0&quot;
+$ hugo server -w
+</code></pre>
+
+<h2 id="step-5-新增-deploy-sh">Step 5: 新增 deploy.sh</h2>
+
+<pre><code>$ cat &gt; deploy.sh
+</code></pre>
+
+<p>這邊要注意，按照官網的操作並不會把原始檔上傳到 <code>&lt;blog-project&gt;</code> 的 repo，所以加入</p>
+
+<pre><code>$ git add -A
+...
+$ git commit ...
+</code></pre>
+
+<pre><code>#!/bin/bash
+
+echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot;
+
+# 
+git add -A
+
+# Commit changes.
+msg=&quot;rebuilding site `date`&quot;
+if [ $# -eq 1 ]
+  then msg=&quot;$1&quot;
+fi
+
+git commit -m &quot;$msg&quot;
+git push origin master
+
+# Build the project.
+hugo # if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`
+
+# Go To Public folder
+cd public
+# Add changes to git.
+git add .
+
+git commit -m &quot;$msg&quot;
+
+# Push source and build repos.
+git push origin master
+
+# Come Back up to the Project Root
+cd ..
+</code></pre>
+
+<p>最後記得改變 deploy.sh 權限為可執行</p>
+
+<pre><code>$ chmod +x deploy.sh
+</code></pre>
+                </section>
+            </article>
+
+            
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fremorsecs.github.io%2fposts%2fnew.site%2f - %e5%a6%82%e4%bd%95%e5%9c%a8%20GitHub%20Pages%20%e4%bd%bf%e7%94%a8%20hugo%20%e5%bb%ba%e7%ab%8b%20blog "><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+            
+
+            
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = ''; 
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.facebook.com/erwin.schrodinger.7">
+        <i class="fa fa-facebook-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.github.com/remorsecs">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/maniac_tw">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2018 <i class="fa fa-heart" aria-hidden="true"></i> Maniac
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://remorsecs.github.io/js/jquery-2.2.4.min.js"></script>
+<script src="https://remorsecs.github.io/js/main.js"></script>
+<script src="https://remorsecs.github.io/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-113302216-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+    </body>
+</html>

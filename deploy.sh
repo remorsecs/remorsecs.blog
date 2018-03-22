@@ -13,11 +13,15 @@ fi
 
 git commit -m "$msg"
 
+cd public/
+git add -A
+git rm -rf *
+
 # Build the project.
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 
-cp -rf temp/* public
-rm -rf temp
+#cp -rf temp/* public
+#rm -rf temp
 
 # Push source code
 git push origin master
