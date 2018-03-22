@@ -2,7 +2,7 @@
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
-# 
+#
 git add -A
 
 # Commit changes.
@@ -15,6 +15,9 @@ git commit -m "$msg"
 
 # Build the project.
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
+
+cp -rf temp public
+rm -rf temp
 
 # Push source code
 git push origin master
