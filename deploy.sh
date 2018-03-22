@@ -14,9 +14,10 @@ fi
 git commit -m "$msg"
 
 cd public/
-git add -A
-git commit -m 'to remove'
+#git add -A
+#git commit -m 'to remove'
 git rm -rf *
+cd ..
 
 # Build the project.
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
