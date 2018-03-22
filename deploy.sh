@@ -16,7 +16,7 @@ git commit -m "$msg"
 # Build the project.
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 
-cp -rf temp public
+cp -rf temp/* public
 rm -rf temp
 
 # Push source code
