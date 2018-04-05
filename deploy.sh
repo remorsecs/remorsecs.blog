@@ -14,8 +14,6 @@ fi
 git commit -m "$msg"
 
 cd public/
-#git add -A
-#git commit -m 'to remove'
 git rm -rf *
 cd ..
 
