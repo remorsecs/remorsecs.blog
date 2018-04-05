@@ -19,7 +19,9 @@ loss = criterion(target, outputs)
 
 看半天看不出錯在哪裡，也不是 model 裡面要設定 `parameter.requires_grad = True` 的問題。結果在 PyTorch 官網翻半天，發現有人遇到一樣的問題，解法是：
 
-`loss = criterion(outputs, target)`
+```
+loss = criterion(outputs, target)
+```
 
 原來是放反了......在 PyTorch 裡面，ground truth 應該要放在右邊，避免無效的 gradient 計算。但特別要注意的是，在其他框架裡面不一定都是放在右邊，像是 Keras 或是 scikit-learn 是把 ground truth 放在左邊的。
 
